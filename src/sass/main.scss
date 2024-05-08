@@ -1,6 +1,6 @@
-body:not(.showBody){
-  .eqfl-container {
-    background-color: #E0F4F5 !important;
+body:not(.showBody) {
+  .eqoh-container {
+    background-color: #e0f4f5 !important;
     opacity: 0 !important;
   }
 }
@@ -9,20 +9,20 @@ body:not(.showBody){
 @import "fonts";
 @import url("https://use.typekit.net/fyc7sqc.css");
 
-html, 
+html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'caldinaregular', sans-serif;
+  font-family: "caldinaregular", sans-serif;
   font-size: 16px;
 }
 
 body.showBody {
-  .eqfl-container {
-    background-color: #FFFFFF;
+  .eqoh-container {
+    background-color: #ffffff;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;  
+    transition: opacity 0.3s ease-in-out;
   }
 }
 
@@ -36,21 +36,22 @@ h2 {
 }
 
 .at {
-  font-family: 'caldinaregular', sans-serif !important;
+  font-family: "caldinaregular", sans-serif !important;
 }
 
 .at-checkbox-title-container {
   padding-left: 0 !important;
 }
 
-.at input[type="checkbox"]+span:before, .at input[type="checkbox"]:checked+span:after {
+.at input[type="checkbox"] + span:before,
+.at input[type="checkbox"]:checked + span:after {
   display: none !important;
 }
 
 .at select {
   height: auto !important;
   font-size: 14px !important;
-  background-color: #F8F9F9 !important;
+  background-color: #f8f9f9 !important;
   //url("data:image/svg+xml;charset=UTF-8, <svg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path opacity='0.7' d='M4.3502 5L8.23508 1.21994C8.5219 0.940858 8.5219 0.488378 8.23507 0.209301C7.94826 -0.0697692 7.48324 -0.0697657 7.19643 0.209309L4.3502 2.97874L1.50397 0.209309C1.21715 -0.0697663 0.752139 -0.0697699 0.46532 0.2093C0.178495 0.488377 0.178491 0.940858 0.465312 1.21994L4.3502 5Z' fill='%23555F6B'/></svg>");
 }
 
@@ -58,7 +59,7 @@ header.at-title {
   display: none;
 }
 
-.eqfl-container {
+.eqoh-container {
   display: flex;
 }
 
@@ -74,12 +75,12 @@ header.at-title {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-family: 'caldinaregular';
+  font-family: "caldinaregular";
   font-weight: 400;
   line-height: 24px;
   z-index: 50;
   max-width: 640px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   @media (min-width: 641px) {
     background-image: url("data:image/svg+xml;charset=UTF-8, <svg width='5' height='762' viewBox='0 0 5 762' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -257.058 303.476)' fill='white'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -287.804 336.15)' fill='%232DC3E9'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -318.548 368.824)' fill='%236A3A10'/><rect width='44.8646' height='528.317' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -349.293 401.498)' fill='%23402611'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -226.312 270.802)' fill='%23F490B3'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -195.567 238.129)' fill='%23EE2B77'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -164.823 205.455)' fill='%23F99D25'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -134.078 172.782)' fill='%23FFD200'/><path d='M-103.333 140.108L-72.5879 107.434L257.702 458.443L226.957 491.116L-103.333 140.108Z' fill='%2388C540'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -72.5869 107.434)' fill='%2300A3AB'/><rect width='44.8646' height='481.974' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -41.8428 74.7606)' fill='%230072BC'/><rect width='44.8646' height='517.725' transform='matrix(0.685287 -0.728273 0.685287 0.728273 -35.5967 16.0507)' fill='%23643695'/></svg>");
@@ -88,7 +89,7 @@ header.at-title {
   }
 }
 
-.eqfl-content {
+.eqoh-content {
   padding: 20px 10px;
   @media (min-width: 382px) {
     padding: 20px;
@@ -105,13 +106,12 @@ header.at-title {
   }
 }
 
-.eqfl-footer {
-  background-color: #F0F1F2;
+.eqoh-footer {
+  background-color: #f0f1f2;
   width: 100%;
   max-width: 635px;
   padding: 42px 70px;
   box-sizing: border-box;
-
 
   img {
     width: 422px;
@@ -119,11 +119,13 @@ header.at-title {
 }
 
 // Hide the neverbounce feedback field
-div[id^=nb-field-] div.nb-feedback div .nb-poweredby {
+div[id^="nb-field-"] div.nb-feedback div .nb-poweredby {
   display: none !important;
 }
 // Hide the recaptcha badge
-.grecaptcha-badge { visibility: hidden; }
+.grecaptcha-badge {
+  visibility: hidden;
+}
 
 .responsive-hero {
   position: relative;
@@ -160,9 +162,9 @@ div[id^=nb-field-] div.nb-feedback div .nb-poweredby {
   bottom: 0;
   right: 0;
   font-size: 12px;
-  font-family: 'caldinabold', sans-serif;
+  font-family: "caldinabold", sans-serif;
   background: rgba(0, 38, 52, 0.24);
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 8px 42px;
 }
 
@@ -171,7 +173,12 @@ div[id^=nb-field-] div.nb-feedback div .nb-poweredby {
   margin: 0 4px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "kiro", sans-serif !important;
 }
 
@@ -188,7 +195,7 @@ h1 {
 
   .accordion {
     position: relative;
-    background: #FFFFFF;
+    background: #ffffff;
     color: #000000;
     cursor: pointer;
     padding: 18px;
@@ -196,24 +203,28 @@ h1 {
     border: 0;
     outline: none;
     transition: background-color 0.2s ease-in-out;
-  
-    background-image: linear-gradient(to right, #000000 33%, rgba(255,255,255,0) 0%);
+
+    background-image: linear-gradient(
+      to right,
+      #000000 33%,
+      rgba(255, 255, 255, 0) 0%
+    );
     background-position: bottom;
     background-size: 4px 1px;
     background-repeat: repeat-x;
-  
+
     &::after {
       position: absolute;
       right: 20px;
       content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' viewBox='0 0 10 6'><path fill='%23002634' d='M5.2 6l4.548-4.536c.336-.335.336-.878 0-1.213-.336-.335-.88-.335-1.216 0L5.2 3.574 1.868.251c-.336-.335-.88-.335-1.216 0-.336.335-.336.878 0 1.213L5.2 6z'/></svg>");
     }
   }
-  
+
   // .accordion:hover {
   //   background-color: #E0F4F5;
   //   transition: background-color 0.2s ease-in-out;
   // }
-  
+
   .active {
     &::after {
       position: absolute;
@@ -221,13 +232,12 @@ h1 {
       content: url("data:image/svg+xml;charset=UTF-8, <svg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5.1999 -8.39259e-07L0.651743 4.53607C0.315953 4.87097 0.315958 5.41395 0.651753 5.74884C0.987541 6.08372 1.53195 6.08372 1.86773 5.74883L5.1999 2.42551L8.53208 5.74883C8.86786 6.08372 9.41227 6.08372 9.74805 5.74884C10.0839 5.41395 10.0839 4.87097 9.74806 4.53607L5.1999 -8.39259e-07Z' fill='%23002634'/></svg>");
     }
   }
-  
+
   .panel {
     padding: 0 18px;
     display: none;
     overflow: hidden;
   }
-
 }
 
 .take-action {
@@ -242,9 +252,9 @@ h1 {
   z-index: 52;
   border-radius: 8px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 24px;
-  font-family:"kiro", sans-serif;
+  font-family: "kiro", sans-serif;
   font-weight: 700;
   cursor: pointer;
 
@@ -267,53 +277,61 @@ h1 {
   overflow: hidden;
 
   &.color-yellow {
-    background-color: #F2E59F;
+    background-color: #f2e59f;
   }
   &.color-teal {
-    background-color: #00A3AB;
-    h2, p {
+    background-color: #00a3ab;
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-pink {
-    background-color: #EE2B77;
-    h2, p {
+    background-color: #ee2b77;
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-black {
     background-color: #002634;
-    h2, p {
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-blue {
-    background-color: #0072BC;
-    h2, p {
+    background-color: #0072bc;
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-purple {
     background-color: #643695;
-    h2, p {
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-ltgray {
-    background-color: #8D939E;
-    h2, p {
+    background-color: #8d939e;
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-dkgray {
-    background-color: #555F6B;
-    h2, p {
+    background-color: #555f6b;
+    h2,
+    p {
       color: #ffffff;
     }
   }
   &.color-brown {
-    background-color: #6A3A10;
-    h2, p {
+    background-color: #6a3a10;
+    h2,
+    p {
       color: #ffffff;
     }
   }
@@ -343,25 +361,25 @@ h1 {
     flex-wrap: wrap;
     text-align: center;
   }
-
 }
 
 .at-form-submit {
   padding: 0 !important;
 }
 
-.at-row>[class^="at-"] {
+.at-row > [class^="at-"] {
   margin: 0 !important;
   min-width: 0 !important;
 }
 
-.at-credit-card-button-wrapper, .at-eft-button-wrapper {
-   .at-btn-radio {
-    background: #EE2B77 !important;
+.at-credit-card-button-wrapper,
+.at-eft-button-wrapper {
+  .at-btn-radio {
+    background: #ee2b77 !important;
     padding: 16px 74px !important;
     border-radius: 8px !important;
     text-align: center !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     font-size: 24px !important;
     font-family: "kiro", sans-serif !important;
     font-weight: 700 !important;
@@ -385,17 +403,15 @@ h1 {
   font-size: 20px !important;
   font-family: "kiro", sans-serif !important;
   font-weight: normal !important;
-  color: #8D939E !important;
+  color: #8d939e !important;
 }
 
-
-
 .at .btn-at-primary {
-  background: #EE2B77 !important;
+  background: #ee2b77 !important;
   padding: 16px 74px !important;
   border-radius: 8px !important;
   text-align: center !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   font-size: 24px !important;
   font-family: "kiro", sans-serif !important;
   font-weight: 700 !important;
@@ -410,8 +426,8 @@ h1 {
 
 input:not(.edit-otheramount):focus-visible {
   outline: none !important;
-  background: #FFFFFF !important;
-  border: 1px solid #80D1D5 !important;
+  background: #ffffff !important;
+  border: 1px solid #80d1d5 !important;
 }
 
 fieldset {
@@ -440,7 +456,7 @@ fieldset {
 
 .at-text {
   input {
-    background-color: #F8F9F9 !important;
+    background-color: #f8f9f9 !important;
   }
 }
 

@@ -1,1 +1,1 @@
-# eagrid-eqoh
+# bonterragrid-eqoh

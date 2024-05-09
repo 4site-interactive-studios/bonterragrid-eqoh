@@ -109,12 +109,16 @@ header.at-title {
 .bonterragrid-footer {
   background-color: #f0f1f2;
   width: 100%;
-  max-width: 635px;
+  max-width: calc(640px - 5px);
   padding: 42px 70px;
   box-sizing: border-box;
 
   img {
     width: 422px;
+  }
+
+  @media (max-width: 640px) {
+    max-width: 100%;
   }
 }
 
@@ -151,7 +155,7 @@ div[id^="nb-field-"] div.nb-feedback div .nb-poweredby {
   top: 0;
   height: 100vh;
   display: flex;
-  width: calc(100vw - 630px);
+  width: calc(100vw - 640px);
   @media (max-width: 640px) {
     display: none;
   }

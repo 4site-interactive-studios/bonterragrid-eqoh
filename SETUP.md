@@ -19,7 +19,7 @@ Field Type: Text
 Field Values: N/A
 Default Value: Example: https://nvlupin.blob.core.windows.net/images/van/AV/AVEA/1/16307/images/4Site/imgs/bg.ba7e8cc0703082ae16a3988384bfd1a2.jpg
 Required: Y
-Merge Field Name: {{Main_Image_URL}}
+Merge Field Name: {{Main_Background_Image_URL}}
 
 ### Custom Field 2
 
@@ -164,7 +164,7 @@ Merge Field Name: {{EFT_Message}}
 <meta name="twitter:site" content="@equalityfl" />
 <script type='text/javascript'>
 var fs_theme_options = {
-main_image_url: '{{Main_Image_URL}}',
+main_image_url: '{{Main_Background_Image_URL}}',
 submit_button_color: '{{Submit_Button_Color}}',
 mobile_background_image_attribution: '{{Mobile_Background_Image_Attribution}}',
 mobile_background_image_url: '{{Mobile_Background_Image_URL}}',

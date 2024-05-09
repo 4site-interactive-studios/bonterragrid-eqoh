@@ -123,7 +123,7 @@ function displayAccordion() {
  * Background Image
  */
 function bgImage() {
-  const mainImage = getThemeOption("main_image_url");
+  const mainImage = getThemeOption("main_background_image_url");
   if (mainImage) {
     const bgImage = document.querySelector(".bg-image");
     if (!bgImage) return;

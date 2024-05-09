@@ -164,7 +164,7 @@ Merge Field Name: {{EFT_Message}}
 <meta name="twitter:site" content="@equalityfl" />
 <script type='text/javascript'>
 var fs_theme_options = {
-main_image_url: '{{Main_Background_Image_URL}}',
+main_background_image_url: '{{Main_Background_Image_URL}}',
 submit_button_color: '{{Submit_Button_Color}}',
 mobile_background_image_attribution: '{{Mobile_Background_Image_Attribution}}',
 mobile_background_image_url: '{{Mobile_Background_Image_URL}}',

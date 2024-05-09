@@ -27,7 +27,7 @@ Short Name: Mobile Background Image URL
 Description: This is the URL for the smaller image that appears in the header when the page is viewed in mobile
 Field Type: Text
 Field Values: N/A
-Default Value: Example: https://nvlupin.blob.core.windows.net/images/van/AV/AVEA/1/16307/images/4Site/imgs/eqoh-mobile.jpg
+Default Value: Example: https://nvlupin.blob.core.windows.net/images/van/AV/AVEA/1/16307/images/4Site/imgs/eqfl-mobile.jpg
 Required: N
 Merge Field Name: {{Mobile_Background_Image_URL}}
 
@@ -192,19 +192,19 @@ opacity: 0;
 
 ## <body> Content
 
-    <div class="eqoh-container button-{{Submit_Button_Color}}">
+    <div class="bonterragrid-container button-{{Submit_Button_Color}}">
       <div class="content-wrap">
         <div class="take-action">{{Mobile_Take_Action_Button_Label}}</div>
         <div class="responsive-hero">
           <img src="{{Mobile_Background_Image_URL}}" border="0" alt="" title="{{Mobile_Background_Image_Attribution}}" decoding="async" loading="lazy">
           <div class="separator"></div>
         </div>
-        <div class="eqoh-content">
+        <div class="bonterragrid-content">
           <img src="https://nvlupin.blob.core.windows.net/images/van/AV/AVEA/1/16307/images/4Site/imgs/logo.1e2b6bd2243ff0dc5861e2f89b190b1d.svg" class="logo" decoding="async" loading="lazy">
           <h1>Give the gift of equality today</h1>
           {{EmbedForm}}
         </div>
-        <div class="eqoh-footer">
+        <div class="bonterragrid-footer">
           <img src="https://nvlupin.blob.core.windows.net/images/van/AV/AVEA/1/16307/images/4Site/imgs/footer-logos.png" border="0" alt="" title="" decoding="async" loading="lazy">
           <h3>You can also mail in your donations to:</h3>
           <p>Equality Ohio Action, Inc.,<br>

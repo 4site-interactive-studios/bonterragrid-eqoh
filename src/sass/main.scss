@@ -1,5 +1,5 @@
 body:not(.showBody) {
-  .eqoh-container {
+  .bonterragrid-container {
     background-color: #e0f4f5 !important;
     opacity: 0 !important;
   }
@@ -19,7 +19,7 @@ body {
 }
 
 body.showBody {
-  .eqoh-container {
+  .bonterragrid-container {
     background-color: #ffffff;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
@@ -59,7 +59,7 @@ header.at-title {
   display: none;
 }
 
-.eqoh-container {
+.bonterragrid-container {
   display: flex;
 }
 
@@ -89,7 +89,7 @@ header.at-title {
   }
 }
 
-.eqoh-content {
+.bonterragrid-content {
   padding: 20px 10px;
   @media (min-width: 382px) {
     padding: 20px;
@@ -106,7 +106,7 @@ header.at-title {
   }
 }
 
-.eqoh-footer {
+.bonterragrid-footer {
   background-color: #f0f1f2;
   width: 100%;
   max-width: 635px;

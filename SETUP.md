@@ -156,7 +156,7 @@ Merge Field Name: {{EFT_Message}}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>EAGRID - eqoh</title>
+<title>{{FormTitle}}</title>
 <meta property="og:title"	content="{{OpenGraphTitle}}" />
 <meta property="og:description"	content="{{OpenGraphDescription}}" />
 <meta property="og:image"	content="{{OpenGraphImage}}" />

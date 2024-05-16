@@ -1,21 +1,20 @@
 const path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-
 module.exports = {
   entry: {
     main: "./src/index.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Email Lightbox",
+      title: "4Site's Bonterra Grid",
       template: "./src/index.html",
       inject: true,
       minify: {
         removeComments: true,
-        collapseWhitespace: false
-      }
-    })
+        collapseWhitespace: false,
+      },
+    }),
   ],
 
   module: {
@@ -38,10 +37,10 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "fonts"
-            }
-          }
-        ]
+              outputPath: "fonts",
+            },
+          },
+        ],
       },
       {
         test: /\.js$/,

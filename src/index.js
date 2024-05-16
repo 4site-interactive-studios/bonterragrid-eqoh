@@ -29,7 +29,7 @@ function init(args) {
     const config = { attributes: false, childList: true, subtree: true };
     createObserver(target, selectAmount, config);
   } catch (error) {
-    console.error("Initialization error:", error);
+    console.warn("Initialization error:", error);
   }
 }
 
@@ -42,7 +42,7 @@ const getThemeOption = (option) => {
       return fs_theme_options[option];
     }
   } catch (error) {
-    console.error("Error getting theme option:", error);
+    console.warn("Error getting theme option:", error);
   }
   return null;
 };
@@ -61,7 +61,7 @@ const setEFTMessage = () => {
       }
     }
   } catch (error) {
-    console.error("Error setting EFT message:", error);
+    console.warn("Error setting EFT message:", error);
   }
 };
 
@@ -74,7 +74,7 @@ const setFrequencyListeners = () => {
       frequency.addEventListener("change", updatePaymentMethods);
     });
   } catch (error) {
-    console.error("Error setting frequency listeners:", error);
+    console.warn("Error setting frequency listeners:", error);
   }
 };
 
@@ -89,7 +89,7 @@ const updatePaymentMethods = () => {
         selectedFrequency && selectedFrequency.value === "0" ? "none" : "block";
     }
   } catch (error) {
-    console.error("Error updating payment methods:", error);
+    console.warn("Error updating payment methods:", error);
   }
 };
 
@@ -100,7 +100,7 @@ const mobileImage = () => {
       img.style.display = "none";
     }
   } catch (error) {
-    console.error("Error handling mobile image:", error);
+    console.warn("Error handling mobile image:", error);
   }
 };
 
@@ -122,7 +122,7 @@ const displayAccordion = () => {
       }
     });
   } catch (error) {
-    console.error("Error displaying accordion:", error);
+    console.warn("Error displaying accordion:", error);
   }
 };
 
@@ -136,7 +136,7 @@ const bgImage = () => {
       }
     }
   } catch (error) {
-    console.error("Error setting background image:", error);
+    console.warn("Error setting background image:", error);
   }
 };
 
@@ -157,7 +157,7 @@ const selectAmount = () => {
       label.addEventListener("change", handleClick);
     });
   } catch (error) {
-    console.error("Error handling select amount:", error);
+    console.warn("Error handling select amount:", error);
   }
 };
 
@@ -209,7 +209,7 @@ const insertPremiums = () => {
       }
     }
   } catch (error) {
-    console.error("Error inserting premiums:", error);
+    console.warn("Error inserting premiums:", error);
   }
 };
 
@@ -244,7 +244,7 @@ const moveRadiosElements = () => {
       '<div class="radios__indicator"></div>'
     );
   } catch (error) {
-    console.error("Error moving radio elements:", error);
+    console.warn("Error moving radio elements:", error);
   }
 };
 
@@ -262,7 +262,7 @@ const checkboxRadiobutton = () => {
       radio.insertAdjacentHTML("beforeend", '<div class="checkmark"></div>');
     });
   } catch (error) {
-    console.error("Error handling checkbox and radio buttons:", error);
+    console.warn("Error handling checkbox and radio buttons:", error);
   }
 };
 
@@ -288,7 +288,7 @@ const isViewport = () => {
       takeAction.style.display = "none";
     }
   } catch (error) {
-    console.error("Error handling viewport intersection:", error);
+    console.warn("Error handling viewport intersection:", error);
   }
 };
 
@@ -306,7 +306,7 @@ const takeActionScroll = () => {
       });
     }
   } catch (error) {
-    console.error("Error handling take action scroll:", error);
+    console.warn("Error handling take action scroll:", error);
   }
 };
 
@@ -317,7 +317,7 @@ const nextButton = () => {
       nextButton.innerHTML = "Continue";
     }
   } catch (error) {
-    console.error("Error updating next button:", error);
+    console.warn("Error updating next button:", error);
   }
 };
 
@@ -336,7 +336,7 @@ const photoCredit = () => {
       responsiveHero.insertAdjacentHTML("beforeend", creditMarkup);
     }
   } catch (error) {
-    console.error("Error adding photo credit:", error);
+    console.warn("Error adding photo credit:", error);
   }
 };
 
@@ -346,6 +346,6 @@ const createObserver = (target, callback, config) => {
     observer.observe(target, config);
     return observer;
   } catch (error) {
-    console.error("Error creating observer:", error);
+    console.warn("Error creating observer:", error);
   }
 };

@@ -33,7 +33,7 @@ function init(args) {
   }
 }
 
-function getThemeOption(option) {
+const getThemeOption = (option) => {
   try {
     if (
       typeof fs_theme_options !== "undefined" &&
@@ -45,9 +45,9 @@ function getThemeOption(option) {
     console.error("Error getting theme option:", error);
   }
   return null;
-}
+};
 
-function setEFTMessage() {
+const setEFTMessage = () => {
   try {
     const message = getThemeOption("eft_message");
     if (message) {
@@ -63,9 +63,9 @@ function setEFTMessage() {
   } catch (error) {
     console.error("Error setting EFT message:", error);
   }
-}
+};
 
-function setFrequencyListeners() {
+const setFrequencyListeners = () => {
   try {
     const frequencies = document.querySelectorAll(
       'input[name="SelectedFrequency"]'
@@ -76,9 +76,9 @@ function setFrequencyListeners() {
   } catch (error) {
     console.error("Error setting frequency listeners:", error);
   }
-}
+};
 
-function updatePaymentMethods() {
+const updatePaymentMethods = () => {
   try {
     const eftField = document.querySelector(".at-eft-button-wrapper");
     if (eftField) {
@@ -91,9 +91,9 @@ function updatePaymentMethods() {
   } catch (error) {
     console.error("Error updating payment methods:", error);
   }
-}
+};
 
-function mobileImage() {
+const mobileImage = () => {
   try {
     const img = document.querySelector(".responsive-hero img");
     if (img && !img.getAttribute("src")) {
@@ -102,16 +102,16 @@ function mobileImage() {
   } catch (error) {
     console.error("Error handling mobile image:", error);
   }
-}
+};
 
-function showBody() {
+const showBody = () => {
   setTimeout(() => {
     window.scrollTo(0, 0);
     document.body.classList.add("showBody");
   }, 750);
-}
+};
 
-function displayAccordion() {
+const displayAccordion = () => {
   try {
     document.body.addEventListener("click", function (event) {
       if (event.target.classList.contains("accordion")) {
@@ -124,9 +124,9 @@ function displayAccordion() {
   } catch (error) {
     console.error("Error displaying accordion:", error);
   }
-}
+};
 
-function bgImage() {
+const bgImage = () => {
   try {
     const mainImage = getThemeOption("main_background_image_url");
     if (mainImage) {
@@ -138,9 +138,9 @@ function bgImage() {
   } catch (error) {
     console.error("Error setting background image:", error);
   }
-}
+};
 
-function selectAmount() {
+const selectAmount = () => {
   try {
     const labelAmount = document.querySelectorAll(".label-amount");
     const labelOtheramount = document.querySelector(".edit-otheramount");
@@ -159,9 +159,9 @@ function selectAmount() {
   } catch (error) {
     console.error("Error handling select amount:", error);
   }
-}
+};
 
-function handleClick(e) {
+const handleClick = (e) => {
   e.preventDefault();
   const labelAmount = document.querySelectorAll(".label-amount");
   labelAmount.forEach((label) => {
@@ -176,9 +176,9 @@ function handleClick(e) {
   } else {
     e.currentTarget.classList.add("active");
   }
-}
+};
 
-function insertPremiums() {
+const insertPremiums = () => {
   try {
     const premiums = getThemeOption("premiums");
     if (Array.isArray(premiums)) {
@@ -211,9 +211,9 @@ function insertPremiums() {
   } catch (error) {
     console.error("Error inserting premiums:", error);
   }
-}
+};
 
-function moveRadiosElements() {
+const moveRadiosElements = () => {
   try {
     const selectedFrequency = document.querySelector(
       ".form-item-selectedfrequency"
@@ -246,9 +246,9 @@ function moveRadiosElements() {
   } catch (error) {
     console.error("Error moving radio elements:", error);
   }
-}
+};
 
-function checkboxRadiobutton() {
+const checkboxRadiobutton = () => {
   try {
     // Add checkmark to checkboxes
     const checkboxes = document.querySelectorAll("label.at-check");
@@ -264,9 +264,9 @@ function checkboxRadiobutton() {
   } catch (error) {
     console.error("Error handling checkbox and radio buttons:", error);
   }
-}
+};
 
-function isViewport() {
+const isViewport = () => {
   try {
     const takeAction = document.querySelector(".take-action");
     if (!takeAction) return;
@@ -290,9 +290,9 @@ function isViewport() {
   } catch (error) {
     console.error("Error handling viewport intersection:", error);
   }
-}
+};
 
-function takeActionScroll() {
+const takeActionScroll = () => {
   try {
     const takeAction = document.querySelector(".take-action");
     if (!takeAction) return;
@@ -308,9 +308,9 @@ function takeActionScroll() {
   } catch (error) {
     console.error("Error handling take action scroll:", error);
   }
-}
+};
 
-function nextButton() {
+const nextButton = () => {
   try {
     const nextButton = document.querySelector(".nextStep");
     if (nextButton) {
@@ -319,9 +319,9 @@ function nextButton() {
   } catch (error) {
     console.error("Error updating next button:", error);
   }
-}
+};
 
-function photoCredit() {
+const photoCredit = () => {
   try {
     const bgImage = document.querySelector(".bg-image");
     const responsiveHero = document.querySelector(".responsive-hero");
@@ -338,9 +338,9 @@ function photoCredit() {
   } catch (error) {
     console.error("Error adding photo credit:", error);
   }
-}
+};
 
-function createObserver(target, callback, config) {
+const createObserver = (target, callback, config) => {
   try {
     const observer = new MutationObserver(callback);
     observer.observe(target, config);
@@ -348,4 +348,4 @@ function createObserver(target, callback, config) {
   } catch (error) {
     console.error("Error creating observer:", error);
   }
-}
+};

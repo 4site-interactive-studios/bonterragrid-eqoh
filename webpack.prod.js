@@ -35,4 +35,18 @@ module.exports = merge(common, {
       },
     ],
   },
+  optimization: {
+    minimize: false, // Disable general minimization
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: false, // Disable compress options
+          mangle: false, // Disable name mangling
+          format: {
+            beautify: true, // Ensure output is not minified
+          },
+        },
+      }),
+    ],
+  },
 });

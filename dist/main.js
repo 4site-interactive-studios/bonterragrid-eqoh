@@ -240,7 +240,7 @@ var handleClick = function handleClick(e) {
   labelAmount.forEach(function (label) {
     var radio = label.querySelector('input[type="radio"]');
     label.classList.remove("active");
-    radio.checked = e.currentTarget.parentNode.classList.contains("label-otheramount") && radio.classList.contains("radio-other");
+    if (e.currentTarget.parentNode.classList.contains("label-otheramount")) radio.checked = !!radio.classList.contains("radio-other");
   });
   if (e.currentTarget.parentNode.classList.contains("label-otheramount")) {
     e.currentTarget.parentNode.classList.add("active");

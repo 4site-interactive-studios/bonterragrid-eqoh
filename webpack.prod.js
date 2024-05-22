@@ -21,29 +21,37 @@ module.exports = merge(common, {
       {
         test: /\.scss$/,
         use: [
-          "style-loader", //4. Inject styles into DOM
-          "css-loader", // 3. Turns css into commonjs
           {
-            loader: "postcss-loader", // 2. Add Autoprefixer to CSS
+            loader: "style-loader",
             options: {
-              ident: "postcss",
-              plugins: [require("autoprefixer")],
+              attributes: {
+                "data-bonterragridcss": "",
+              },
             },
           },
-          "sass-loader", // 1. Turns sass into css
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [require("autoprefixer")],
+              },
+            },
+          },
+          "sass-loader",
         ],
       },
     ],
   },
   optimization: {
-    minimize: false, // Disable general minimization
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          compress: false, // Disable compress options
-          mangle: false, // Disable name mangling
+          compress: false,
+          mangle: false,
           format: {
-            beautify: true, // Ensure output is not minified
+            beautify: true,
           },
         },
       }),

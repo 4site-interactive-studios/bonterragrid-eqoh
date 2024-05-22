@@ -1,13 +1,4 @@
-body:not(.showBody) {
-  .bonterragrid-container {
-    background-color: #e0f4f5 !important;
-    opacity: 0 !important;
-  }
-}
-
 @import "normalize";
-@import "fonts";
-@import url("https://use.typekit.net/fyc7sqc.css");
 
 html,
 body {
@@ -18,9 +9,13 @@ body {
   font-size: 16px;
 }
 
+.bg-image,
+.responsive-hero {
+  background-color: #f7f7f7;
+}
+
 body.showBody {
   .bonterragrid-container {
-    background-color: #ffffff;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
   }
@@ -488,3 +483,6 @@ fieldset {
 
 // Buttons Colors
 @import "_buttonsColors";
+
+@import "fonts";
+// @import url("https://use.typekit.net/fyc7sqc.css");

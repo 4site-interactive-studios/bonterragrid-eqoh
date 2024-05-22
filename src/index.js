@@ -1,108 +1,5 @@
-console.log("Test13");
+console.log("Test15");
 import scss from "./sass/main.scss";
-
-// Global nvtag_callbacks handling
-window.nvtag_callbacks = window.nvtag_callbacks || {};
-var nvtag_callbacks = window.nvtag_callbacks;
-nvtag_callbacks.postRender = nvtag_callbacks.postRender || [];
-
-// Flag to prevent multiple `init` executions
-let initExecuted = false;
-
-// Add init to the postRender array
-if (!nvtag_callbacks.postRender.includes(init)) {
-  console.log("Adding init to nvtag_callbacks.postRender");
-  nvtag_callbacks.postRender.push(init);
-}
-
-// Function to execute postRender callbacks
-function executePostRenderCallbacks() {
-  if (typeof nvtag_callbacks.postRender !== "undefined") {
-    nvtag_callbacks.postRender.forEach((callback) => {
-      if (callback === init && !initExecuted) {
-        callback();
-        initExecuted = true; // Set flag after init has run
-      } else if (callback !== init) {
-        callback();
-      }
-    });
-  } else {
-    console.warn("nvtag_callbacks.postRender is undefined");
-  }
-}
-
-// Function to observe changes in .ngp-form
-function observeNgpForm(ngpForm) {
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.addedNodes.length > 0) {
-        console.log(
-          "Content added to .ngp-form, executing postRender callbacks"
-        );
-        observer.disconnect();
-        executePostRenderCallbacks();
-      }
-    });
-  });
-  observer.observe(ngpForm, { childList: true, subtree: true });
-}
-
-// Function to initialize after DOMContentLoaded
-function initializeAfterDOMLoaded() {
-  console.log("DOMContentLoaded event fired or document already loaded");
-  const ngpForm = document.querySelector(".ngp-form");
-  if (ngpForm) {
-    console.log(".ngp-form found, checking for content");
-    if (ngpForm.innerHTML.trim() !== "") {
-      console.log(
-        ".ngp-form already has content, executing postRender callbacks"
-      );
-      executePostRenderCallbacks();
-    } else {
-      console.log(".ngp-form is empty, setting up MutationObserver");
-      observeNgpForm(ngpForm);
-    }
-  } else {
-    console.warn(".ngp-form not found");
-  }
-}
-
-// Ensure init runs after DOM is fully loaded or immediately if already loaded
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeAfterDOMLoaded);
-} else {
-  initializeAfterDOMLoaded();
-}
-
-function init(args) {
-  console.log("init function started");
-  try {
-    displayAccordion();
-    mobileImage();
-    bgImage();
-    moveRadiosElements();
-    isViewport();
-    insertPremiums();
-    checkboxRadiobutton();
-    takeActionScroll();
-    selectAmount();
-    nextButton();
-    photoCredit();
-    setFrequencyListeners();
-    setEFTMessage();
-    updatePaymentMethods();
-    emptyBonterraGridInlineCSS();
-
-    const target = document.querySelector(".form-item-selectamount");
-    if (target) {
-      const config = { attributes: false, childList: true, subtree: true };
-      createObserver(target, selectAmount, config);
-      console.log("Observer created for .form-item-selectamount");
-    }
-  } catch (error) {
-    console.warn("Initialization error:", error);
-  }
-}
 
 const getThemeOption = (option) => {
   try {
@@ -197,7 +94,7 @@ const bgImage = () => {
     if (mainImage) {
       const bgImage = document.querySelector(".bg-image");
       if (bgImage) {
-        bgImage.style.cssText = `background: url('${mainImage}'); background-repeat: no-repeat; background-size: cover; background-position: center center;`;
+        bgImage.style.cssText = `background: url('${mainImage}'); background-repeat: no-repeat; background-size: cover; background-position: center center; background-color: #f7f7f7`;
       }
     }
   } catch (error) {
@@ -253,7 +150,7 @@ const insertPremiums = () => {
         premiums.forEach((premium) => {
           if (premium.color && premium.body && premium.title) {
             const imageMarkup = premium.image_url
-              ? `<div class="premium-image"><img src="${premium.image_url}" border="0" alt="" title="" decoding="async" loading="lazy" /></div>`
+              ? `<div class="premium-image"><img src="${premium.image_url}" border="0" alt="" title="" decoding="async" width="230" height="230" /></div>`
               : ``;
             const premiumMarkup = `
               <div class="premium color-${premium.color}">
@@ -430,3 +327,108 @@ const emptyBonterraGridInlineCSS = () => {
     console.warn("Error emptyBonterraGridInlineCSS:", error);
   }
 };
+
+// Global nvtag_callbacks handling
+window.nvtag_callbacks = window.nvtag_callbacks || {};
+var nvtag_callbacks = window.nvtag_callbacks;
+nvtag_callbacks.postRender = nvtag_callbacks.postRender || [];
+
+// Flag to prevent multiple `init` executions
+let initExecuted = false;
+
+// Add init to the postRender array
+if (!nvtag_callbacks.postRender.includes(init)) {
+  console.log("Adding init to nvtag_callbacks.postRender");
+  nvtag_callbacks.postRender.push(init);
+}
+
+// Function to execute postRender callbacks
+function executePostRenderCallbacks() {
+  if (typeof nvtag_callbacks.postRender !== "undefined") {
+    nvtag_callbacks.postRender.forEach((callback) => {
+      if (callback === init && !initExecuted) {
+        callback();
+        initExecuted = true; // Set flag after init has run
+      } else if (callback !== init) {
+        callback();
+      }
+    });
+  } else {
+    console.warn("nvtag_callbacks.postRender is undefined");
+  }
+}
+
+// Function to observe changes in .ngp-form
+function observeNgpForm(ngpForm) {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length > 0) {
+        console.log(
+          "Content added to .ngp-form, executing postRender callbacks"
+        );
+        observer.disconnect();
+        executePostRenderCallbacks();
+      }
+    });
+  });
+  observer.observe(ngpForm, { childList: true, subtree: true });
+}
+
+// Function to initialize after DOMContentLoaded
+function initializeAfterDOMLoaded() {
+  console.log("DOMContentLoaded event fired or document already loaded");
+  const ngpForm = document.querySelector(".ngp-form");
+  if (ngpForm) {
+    console.log(".ngp-form found, checking for content");
+    if (ngpForm.innerHTML.trim() !== "") {
+      console.log(
+        ".ngp-form already has content, executing postRender callbacks"
+      );
+      executePostRenderCallbacks();
+    } else {
+      console.log(".ngp-form is empty, setting up MutationObserver");
+      observeNgpForm(ngpForm);
+    }
+  } else {
+    console.warn(".ngp-form not found");
+  }
+}
+
+// Ensure init runs after DOM is fully loaded or immediately if already loaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeAfterDOMLoaded);
+} else {
+  initializeAfterDOMLoaded();
+}
+
+function init(args) {
+  console.log("init function started");
+  try {
+    // Check if functions are defined before calling them
+    if (typeof displayAccordion === "function") displayAccordion();
+    if (typeof mobileImage === "function") mobileImage();
+    if (typeof bgImage === "function") bgImage();
+    if (typeof moveRadiosElements === "function") moveRadiosElements();
+    if (typeof isViewport === "function") isViewport();
+    if (typeof insertPremiums === "function") insertPremiums();
+    if (typeof checkboxRadiobutton === "function") checkboxRadiobutton();
+    if (typeof takeActionScroll === "function") takeActionScroll();
+    if (typeof selectAmount === "function") selectAmount();
+    if (typeof nextButton === "function") nextButton();
+    if (typeof photoCredit === "function") photoCredit();
+    if (typeof setFrequencyListeners === "function") setFrequencyListeners();
+    if (typeof setEFTMessage === "function") setEFTMessage();
+    if (typeof updatePaymentMethods === "function") updatePaymentMethods();
+    if (typeof emptyBonterraGridInlineCSS === "function")
+      emptyBonterraGridInlineCSS();
+
+    const target = document.querySelector(".form-item-selectamount");
+    if (target) {
+      const config = { attributes: false, childList: true, subtree: true };
+      createObserver(target, selectAmount, config);
+      console.log("Observer created for .form-item-selectamount");
+    }
+  } catch (error) {
+    console.warn("Initialization error:", error);
+  }
+}

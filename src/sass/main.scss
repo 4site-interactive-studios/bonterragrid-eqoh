@@ -7,7 +7,11 @@ body {
   width: 100%;
   font-family: "caldinaregular", sans-serif;
   font-size: 16px;
-  background-color: #e0f4f5 !important;
+}
+
+.bg-image,
+.responsive-hero {
+  background-color: #f7f7f7;
 }
 
 body.showBody {
@@ -481,4 +485,4 @@ fieldset {
 @import "_buttonsColors";
 
 @import "fonts";
-@import url("https://use.typekit.net/fyc7sqc.css");
+// @import url("https://use.typekit.net/fyc7sqc.css");

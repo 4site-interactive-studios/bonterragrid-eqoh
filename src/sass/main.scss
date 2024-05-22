@@ -1,6 +1,4 @@
 @import "normalize";
-@import "fonts";
-@import url("https://use.typekit.net/fyc7sqc.css");
 
 html,
 body {
@@ -481,3 +479,6 @@ fieldset {
 
 // Buttons Colors
 @import "_buttonsColors";
+
+@import "fonts";
+@import url("https://use.typekit.net/fyc7sqc.css");

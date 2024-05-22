@@ -1,13 +1,81 @@
-// Importing CSS and SCSS
+console.log("Test13");
 import scss from "./sass/main.scss";
 
 // Global nvtag_callbacks handling
 window.nvtag_callbacks = window.nvtag_callbacks || {};
 var nvtag_callbacks = window.nvtag_callbacks;
 nvtag_callbacks.postRender = nvtag_callbacks.postRender || [];
-nvtag_callbacks.postRender.push(init);
+
+// Flag to prevent multiple `init` executions
+let initExecuted = false;
+
+// Add init to the postRender array
+if (!nvtag_callbacks.postRender.includes(init)) {
+  console.log("Adding init to nvtag_callbacks.postRender");
+  nvtag_callbacks.postRender.push(init);
+}
+
+// Function to execute postRender callbacks
+function executePostRenderCallbacks() {
+  if (typeof nvtag_callbacks.postRender !== "undefined") {
+    nvtag_callbacks.postRender.forEach((callback) => {
+      if (callback === init && !initExecuted) {
+        callback();
+        initExecuted = true; // Set flag after init has run
+      } else if (callback !== init) {
+        callback();
+      }
+    });
+  } else {
+    console.warn("nvtag_callbacks.postRender is undefined");
+  }
+}
+
+// Function to observe changes in .ngp-form
+function observeNgpForm(ngpForm) {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length > 0) {
+        console.log(
+          "Content added to .ngp-form, executing postRender callbacks"
+        );
+        observer.disconnect();
+        executePostRenderCallbacks();
+      }
+    });
+  });
+  observer.observe(ngpForm, { childList: true, subtree: true });
+}
+
+// Function to initialize after DOMContentLoaded
+function initializeAfterDOMLoaded() {
+  console.log("DOMContentLoaded event fired or document already loaded");
+  const ngpForm = document.querySelector(".ngp-form");
+  if (ngpForm) {
+    console.log(".ngp-form found, checking for content");
+    if (ngpForm.innerHTML.trim() !== "") {
+      console.log(
+        ".ngp-form already has content, executing postRender callbacks"
+      );
+      executePostRenderCallbacks();
+    } else {
+      console.log(".ngp-form is empty, setting up MutationObserver");
+      observeNgpForm(ngpForm);
+    }
+  } else {
+    console.warn(".ngp-form not found");
+  }
+}
+
+// Ensure init runs after DOM is fully loaded or immediately if already loaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeAfterDOMLoaded);
+} else {
+  initializeAfterDOMLoaded();
+}
 
 function init(args) {
+  console.log("init function started");
   try {
     displayAccordion();
     mobileImage();
@@ -23,11 +91,14 @@ function init(args) {
     setFrequencyListeners();
     setEFTMessage();
     updatePaymentMethods();
-    showBody();
+    emptyBonterraGridInlineCSS();
 
     const target = document.querySelector(".form-item-selectamount");
-    const config = { attributes: false, childList: true, subtree: true };
-    createObserver(target, selectAmount, config);
+    if (target) {
+      const config = { attributes: false, childList: true, subtree: true };
+      createObserver(target, selectAmount, config);
+      console.log("Observer created for .form-item-selectamount");
+    }
   } catch (error) {
     console.warn("Initialization error:", error);
   }
@@ -104,14 +175,8 @@ const mobileImage = () => {
   }
 };
 
-const showBody = () => {
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-    document.body.classList.add("showBody");
-  }, 750);
-};
-
 const displayAccordion = () => {
+  console.log("displayAccordion running");
   try {
     document.body.addEventListener("click", function (event) {
       if (event.target.classList.contains("accordion")) {
@@ -346,5 +411,22 @@ const createObserver = (target, callback, config) => {
     return observer;
   } catch (error) {
     console.warn("Error creating observer:", error);
+  }
+};
+
+const emptyBonterraGridInlineCSS = () => {
+  console.log("Running emptyBonterraGridInlineCSS");
+  try {
+    const styles = document.querySelectorAll(
+      "style[data-bonterragridinlinecss]"
+    );
+    styles.forEach((style) => {
+      style.innerHTML = "";
+      style.setAttribute("data-bonterragridinlinecss", "emptied");
+      console.log("Emptied emptyBonterraGridInlineCSS");
+      document.body.classList.add("showBody");
+    });
+  } catch (error) {
+    console.warn("Error emptyBonterraGridInlineCSS:", error);
   }
 };

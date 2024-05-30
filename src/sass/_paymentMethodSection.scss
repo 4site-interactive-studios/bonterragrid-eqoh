@@ -3,28 +3,29 @@
     display: none;
   }
 
-  .at-credit-card-button-wrapper,.at-eft-button-wrapper {
+  .at-credit-card-button-wrapper,
+  .at-eft-button-wrapper {
     display: flex;
     text-align: center;
     font-size: 24px;
 
     .at-btn-radio {
       background-color: #ee2b77;
-      color: #FFFFFF;
+      color: #ffffff;
       padding: 19px 24px;
-      border-radius: 8px;
+      border-radius: 0px; // 8px
       width: 100%;
     }
   }
 
   .eft-message {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
-    font-family: "Alkes", serif;
+    font-family: "Open Sans", sans-serif;
     font-style: italic;
     font-weight: 400;
     margin-bottom: 36px;
-    color: #00A3AB;
+    color: #0080c0;
     margin-bottom: 20px !important;
   }
 }

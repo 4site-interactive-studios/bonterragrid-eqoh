@@ -1,4 +1,5 @@
-fieldset legend, .at-steps {
+fieldset legend,
+.at-steps {
   display: none !important;
 }
 
@@ -11,7 +12,7 @@ fieldset.ContributionInformation {
 }
 
 @media only screen and (max-width: 40em) {
-  .at form .label-amount:nth-child(2n+2) {
+  .at form .label-amount:nth-child(2n + 2) {
     margin-right: 4px !important;
   }
 }
@@ -28,10 +29,10 @@ fieldset.ContributionInformation {
   padding: 0 4px;
   margin: 36px auto 8px auto !important;
   font-size: 24px;
-  color: #00A3AB;
+  color: #0080c0;
   height: 70px;
-  background: #E0F4F5;
-  border-radius: 11px;
+  background: #e5f4fa;
+  border-radius: 0px; // 11px
 
   label {
     display: inline-block;
@@ -43,36 +44,38 @@ fieldset.ContributionInformation {
     transition: color 200ms ease-out;
     z-index: 51;
     color: inherit !important;
-    font-family: 'caldinaregular', sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
     text-shadow: none !important;
     font-size: 20px !important;
+    line-height: 24px;
+    font-weight: 700;
     @media (min-width: 550px) {
       font-size: 24px !important;
     }
   }
 
   &__indicator {
-    content: '';
+    content: "";
     z-index: 50;
     width: 50%;
     height: 62px;
     position: absolute;
     left: 0;
-    background: #00A3AB;
-    border-radius: 8px;
-    transition: transform 600ms cubic-bezier(.02,.94,.09,.97),
-                background 300ms cubic-bezier(.17,.67,.14,1.03);
-    transform: translate3d(4px,0,0);
+    background: #0080c0;
+    border-radius: 0px; // 8px
+    transition: transform 600ms cubic-bezier(0.02, 0.94, 0.09, 0.97),
+      background 300ms cubic-bezier(0.17, 0.67, 0.14, 1.03);
+    transform: translate3d(4px, 0, 0);
   }
 
   input#id-0:checked ~ .radios__indicator {
-    background: #00A3AB;
-    transform: translate3d(4px,0,0);
+    background: #0080c0;
+    transform: translate3d(4px, 0, 0);
   }
 
   input#id-1:checked ~ .radios__indicator {
-    background: #00A3AB;
-    transform: translate3d(calc(100% - 4px),0,0);
+    background: #0080c0;
+    transform: translate3d(calc(100% - 4px), 0, 0);
   }
 
   input[type="radio"] {
@@ -83,29 +86,28 @@ fieldset.ContributionInformation {
   }
 
   input#id-1:checked ~ .at-radio-label-0 {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
   }
 
   input#id-0:checked ~ .at-radio-label-4 {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
   }
-
 }
 
 .radio-description {
   display: flex;
   font-size: 16px;
   line-height: 24px;
-  font-family: "Alkes", serif;
+  font-family: "Open Sans", sans-serif;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 36px;
-  color: #00A3AB;
+  color: #0080c0;
 
   &::before {
     display: flex;
     margin-right: 10px;
-    content: url("data:image/svg+xml;charset=UTF-8, <svg width='12' height='30' viewBox='0 0 12 30' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.2 5.9038C1.86724 8.53428 0.444421 11.9797 0.444421 15.761C0.444422 21.789 4.04311 26.9766 9.22659 29.357C10.1163 29.7655 11.123 29.2508 11.4325 28.322C11.7453 27.3834 11.2249 26.3814 10.3426 25.9339C6.60875 24.0396 4.05558 20.1991 4.05558 15.761C4.05558 12.9661 5.09558 10.4285 6.77833 8.4485L10.2966 11.9306C10.928 12.5556 12 12.1083 12 11.2199L12 0.750003L1.42953 0.750004C0.536472 0.750004 0.0912864 1.8316 0.725585 2.46026L4.2 5.9038Z' fill='%2300A3AB'/></svg>");
+    content: url("data:image/svg+xml;charset=UTF-8, <svg width='12' height='30' viewBox='0 0 12 30' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4.2 5.9038C1.86724 8.53428 0.444421 11.9797 0.444421 15.761C0.444422 21.789 4.04311 26.9766 9.22659 29.357C10.1163 29.7655 11.123 29.2508 11.4325 28.322C11.7453 27.3834 11.2249 26.3814 10.3426 25.9339C6.60875 24.0396 4.05558 20.1991 4.05558 15.761C4.05558 12.9661 5.09558 10.4285 6.77833 8.4485L10.2966 11.9306C10.928 12.5556 12 12.1083 12 11.2199L12 0.750003L1.42953 0.750004C0.536472 0.750004 0.0912864 1.8316 0.725585 2.46026L4.2 5.9038Z' fill='%230080C0'/></svg>");
   }
 }
 
@@ -120,11 +122,11 @@ fieldset.ContributionInformation {
   flex-wrap: wrap;
 
   .label-amount.active {
-    color: #FFFFFF;
+    color: #ffffff;
     transition: color 0.2s ease-in-out;
   }
 
-  .label-amount:nth-child(4n+4) {
+  .label-amount:nth-child(4n + 4) {
     margin-right: 4px !important;
   }
 
@@ -133,21 +135,22 @@ fieldset.ContributionInformation {
     flex: 1 1 0px;
     justify-content: center;
     align-items: center;
-    color: #00A3AB;
-    font-size: 22px;
+    color: #000000;
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 700;
     padding: 16px 20px;
     cursor: pointer;
     text-align: center;
     position: relative;
     margin: 0 4px 8px 4px;
-    font-family: 'caldinasemibold', sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-shadow: none !important;
 
     @media (min-width: 641px) {
       max-width: 117px;
     }
-    
-  
+
     a {
       position: absolute;
       top: 0;
@@ -155,24 +158,24 @@ fieldset.ContributionInformation {
       height: 100%;
       left: 0;
       display: block;
-      border: 1px solid #D6D8DC;
-      color: #00A3AB;
-      background-color: #FFFFFF;
-      border-radius: 8px;
+      border: 1px solid #0080c0;
+      color: #0080c0;
+      background-color: #ffffff;
+      border-radius: 0px; // 8px
       z-index: -1;
       transition: all 0.2s ease-in-out;
     }
 
     &:hover {
-      color: #FFFFFF;
+      color: #ffffff;
     }
-  
+
     &:hover > a {
-      background-color: #00A3AB;
-      border-color: #00A3AB;
+      background-color: #0080c0;
+      border-color: #0080c0;
       transition: all 0.2s ease-in-out;
     }
-  
+
     input[type="radio"] {
       position: absolute !important;
       height: 1px;
@@ -180,13 +183,13 @@ fieldset.ContributionInformation {
       overflow: hidden;
       clip: rect(1px, 1px, 1px, 1px);
       width: 100% !important;
-      font-size: .9375rem;
+      font-size: 0.9375rem;
       margin-left: 0;
       height: 50px;
       min-height: 0;
       padding: 7px 10px 7px 1.5rem;
       outline: none;
-      border: 1px solid #D6D8DC;
+      border: 1px solid #d6d8dc;
       border-radius: 4px;
       background-color: #fff;
       font-size: 24px;
@@ -196,13 +199,12 @@ fieldset.ContributionInformation {
       max-width: 100%;
       margin-bottom: 0;
     }
-  
-    input[type="radio"]:checked+a {
-      background-color: #00A3AB;
-      border-color: #00A3AB;
+
+    input[type="radio"]:checked + a {
+      background-color: #0080c0;
+      border-color: #0080c0;
       transition: all 0.2s ease-in-out;
     }
-  
   }
 
   // Other Amount
@@ -218,33 +220,33 @@ fieldset.ContributionInformation {
     margin: 0 4px 8px 4px !important;
 
     &.active input[type="number"] {
-      background-color: #00A3AB;
-      border-color: #00A3AB;
-      color: #FFFFFF;
+      background-color: #0080c0;
+      border-color: #0080c0;
+      color: #ffffff;
     }
-    
+
     input.edit-otheramount {
-      border-radius: 8px;
+      border-radius: 0px; // 8px
       padding: 16px 20px;
-      border: 1px solid #D6D8DC;
+      border: 1px solid #d6d8dc;
       width: 100%;
       height: 100%;
       font-size: 22px;
       box-sizing: border-box;
-      background: #F8F9F9;
+      background: #f8f9f9;
 
       &::placeholder {
-        color: #D4D7DA;
+        color: #d4d7da;
       }
 
       &:focus {
-        background-color: #00A3AB;
-        border-color: #00A3AB;
-        color: #FFFFFF;
+        background-color: #0080c0;
+        border-color: #0080c0;
+        color: #ffffff;
       }
     }
 
-    input+.label-otheramount-prefix {
+    input + .label-otheramount-prefix {
       display: block;
       position: absolute;
       color: #000000;
@@ -258,10 +260,15 @@ fieldset.ContributionInformation {
     }
 
     input:required {
-      background-color: #00A3AB;
-      border-color: #00A3AB;
-      color: #FFFFFF;
+      background-color: #0080c0;
+      border-color: #0080c0;
+      color: #ffffff;
       box-shadow: none;
     }
   }
+}
+
+.at-check.CoverCostsAmount {
+  margin-left: 4px;
+  margin-right: 4px;
 }

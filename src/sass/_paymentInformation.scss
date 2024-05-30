@@ -1,26 +1,25 @@
 .PaymentInformation {
-
   label {
     font-size: 14px;
   }
 
-  .vgs-cc-iframe-wrapper iframe, .vgs-ccexpiration-iframe-wrapper iframe {
+  .vgs-cc-iframe-wrapper iframe,
+  .vgs-ccexpiration-iframe-wrapper iframe {
     display: flex;
-    border-radius: 8px;
+    border-radius: 0px; // 8px
     // padding: 14px 20px;
-    border: 1px solid #D6D8DC;
+    border: 1px solid #d6d8dc;
     width: 100%;
     font-size: 16px;
     box-sizing: border-box;
-    background: #FFFFFF;
+    background: #ffffff;
   }
-  
+
   .at-cc-number {
     margin-right: 8px !important;
   }
 
   .css-kaihww {
-    background-color: #F8F9F9 !important;
+    background-color: #f8f9f9 !important;
   }
-
 }

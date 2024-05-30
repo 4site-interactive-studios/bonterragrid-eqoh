@@ -1,9 +1,9 @@
-.ContactInformation {
-
+.ContactInformation,
+.RecipientInformation {
   .at-fields {
     .at-row {
       display: flex;
-      margin-bottom: 8px;
+      // margin-bottom: 8px;
 
       label {
         font-size: 14px;
@@ -15,31 +15,38 @@
         margin-right: 8px !important;
       }
 
-      label.error {
+      label.RecipientFirstName:not(:last-child),
+      label.RecipientCountry:not(:last-child),
+      label.RecipientPostalCode:not(:last-child),
+      label.RecipientCity:not(:last-child) {
+        margin-right: 0px !important;
+      }
 
+      label.error {
         input {
           outline: none !important;
-          background: #FFFBFC !important;
-          border: 1px solid #FCDDE9 !important;
+          background: #fffbfc !important;
+          border: 1px solid #fcdde9 !important;
         }
 
         small.error {
-          color: #EE2B77;
+          color: #ee2b77;
         }
       }
 
-      input, select {
+      input,
+      select {
         display: flex;
-        border-radius: 8px;
+        border-radius: 0px; // 8px
         padding: 14px 20px;
-        border: 1px solid #D6D8DC;
+        border: 1px solid #d6d8dc;
         width: 100%;
         font-size: 16px;
         box-sizing: border-box;
       }
 
       input {
-        background: #F8F9F9;
+        background: #f8f9f9;
         height: 48px;
       }
 
@@ -54,8 +61,46 @@
           flex: 1 1 0px !important;
         }
       }
-
     }
   }
+}
 
+.at-recipient-info {
+  select {
+    display: flex;
+    border-radius: 0px; // 8px
+    padding: 14px 20px;
+    border: 1px solid #d6d8dc;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  select {
+    height: 48px !important;
+  }
+}
+
+.at .select2-selection--single {
+  background-color: #f8f9f9;
+  border-radius: 0px;
+}
+
+.select2-selection {
+  border-radius: 0px;
+  border: 1px solid #d6d8dc;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 48px;
+}
+
+.at .select2-selection--single {
+  height: 48px;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  line-height: 38px;
 }

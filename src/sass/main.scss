@@ -430,10 +430,35 @@ h1 {
 }
 
 .step-prevNext {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: min-content min-content;
+  grid-auto-rows: min-content;
+  gap: 0.25rem 1rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "prev next"
+    "secure-processing-div secure-processing-div";
+  justify-content: flex-end;
   align-items: center;
+
+  .secure-processing-div {
+    justify-self: center;
+    align-self: center;
+    grid-area: secure-processing-div;
+  }
+
+  .prev {
+    justify-self: center;
+    align-self: center;
+    grid-area: prev;
+  }
+
+  .next {
+    justify-self: center;
+    align-self: center;
+    grid-area: next;
+  }
 
   .submitStep {
     position: relative !important;

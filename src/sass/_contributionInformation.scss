@@ -29,7 +29,7 @@ fieldset.ContributionInformation {
   padding: 0 4px;
   margin: 36px auto 8px auto !important;
   font-size: 24px;
-  color: #0080c0;
+  color: #000000;
   height: 70px;
   background: #e5f4fa;
   border-radius: 0px; // 11px
@@ -101,7 +101,7 @@ fieldset.ContributionInformation {
   font-family: "Open Sans", sans-serif;
   font-style: italic;
   font-weight: 400;
-  margin-bottom: 36px;
+  margin-bottom: 1rem;
   color: #0080c0;
 
   &::before {
@@ -137,7 +137,7 @@ fieldset.ContributionInformation {
     align-items: center;
     color: #000000;
     font-size: 24px;
-    line-height: 26px;
+    line-height: 26px !important;
     font-weight: 700;
     padding: 16px 20px;
     cursor: pointer;
@@ -146,6 +146,10 @@ fieldset.ContributionInformation {
     margin: 0 4px 8px 4px;
     font-family: "Montserrat", sans-serif;
     text-shadow: none !important;
+
+    .long {
+      line-height: 26px;
+    }
 
     @media (min-width: 641px) {
       max-width: calc(25% - 8px);
@@ -227,7 +231,7 @@ fieldset.ContributionInformation {
 
     input.edit-otheramount {
       border-radius: 0px; // 8px
-      padding: 16px 20px;
+      padding: 16px 27px;
       border: 1px solid #d6d8dc;
       width: 100%;
       height: 100%;
@@ -257,6 +261,9 @@ fieldset.ContributionInformation {
       padding: 7px 0 7px 10px;
       border: 1px solid transparent;
       text-shadow: none;
+      font-size: 20px;
+      line-height: 26px;
+      padding-top: 4px;
     }
 
     input:required {
@@ -266,4 +273,9 @@ fieldset.ContributionInformation {
       box-shadow: none;
     }
   }
+}
+
+.at-check.CoverCostsAmount {
+  margin-left: 4px;
+  margin-right: 4px;
 }

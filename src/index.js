@@ -1,4 +1,3 @@
-console.log("Test15");
 import scss from "./sass/main.scss";
 
 const getThemeOption = (option) => {
@@ -293,8 +292,14 @@ const photoCredit = () => {
     if (responsiveHeroImage && responsiveHeroImage.hasAttribute("title")) {
       const photoAttribute = responsiveHeroImage.getAttribute("title");
       const creditMarkup = `<div class="photoCredit">${photoAttribute}</div>`;
-      bgImage.insertAdjacentHTML("beforeend", creditMarkup);
-      responsiveHero.insertAdjacentHTML("beforeend", creditMarkup);
+
+      if (!bgImage.querySelector(".photoCredit")) {
+        bgImage.insertAdjacentHTML("beforeend", creditMarkup);
+      }
+
+      if (!responsiveHero.querySelector(".photoCredit")) {
+        responsiveHero.insertAdjacentHTML("beforeend", creditMarkup);
+      }
     }
   } catch (error) {
     console.warn("Error adding photo credit:", error);
@@ -347,6 +352,7 @@ function executePostRenderCallbacks() {
   if (typeof nvtag_callbacks.postRender !== "undefined") {
     nvtag_callbacks.postRender.forEach((callback) => {
       if (callback === init && !initExecuted) {
+        moveBonterraGridCSS();
         callback();
         initExecuted = true; // Set flag after init has run
       } else if (callback !== init) {
@@ -401,10 +407,72 @@ if (document.readyState === "loading") {
   initializeAfterDOMLoaded();
 }
 
+function moveBonterraGridCSS() {
+  // Check for existing <style> elements with data-bonterragridcss and move them
+  const existingStyles = document.querySelectorAll(
+    "style[data-bonterragridcss]"
+  );
+  if (existingStyles.length > 0) {
+    existingStyles.forEach((node) => {
+      console.log("Found existing <style> element:", node);
+      document.body.appendChild(node);
+      console.log(
+        "Moved existing <style> element with data-bonterragridcss to the end of <body>"
+      );
+    });
+  } else {
+    console.log("No existing <style> elements with data-bonterragridcss found");
+  }
+
+  // Create a MutationObserver to watch for new additions
+  const observer = new MutationObserver((mutationsList) => {
+    for (let mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach((node) => {
+          if (
+            node.nodeType === 1 &&
+            node.tagName === "STYLE" &&
+            node.hasAttribute("data-bonterragridcss")
+          ) {
+            console.log("Found new <style> element:", node);
+            document.body.appendChild(node);
+            console.log(
+              "Moved new <style> element with data-bonterragridcss to the end of <body>"
+            );
+          }
+        });
+      }
+    }
+  });
+
+  const config = { childList: true, subtree: true };
+  observer.observe(document.head, config);
+  console.log("MutationObserver is now observing the <head> for changes");
+}
+
+function setEmbeddedAttributeBasedOnURL() {
+  const currentURL = window.location.href;
+  const isEmbedded = !currentURL.includes("everyaction.com");
+
+  if (isEmbedded) {
+    document.body.setAttribute("data-embedded", "true");
+    console.log(
+      'Set data-embedded="true" on <body> because the URL is not everyaction.com'
+    );
+  } else {
+    document.body.setAttribute("data-embedded", "false");
+    console.log(
+      'Set data-embedded="false" on <body> because the URL is everyaction.com'
+    );
+  }
+}
+
 function init(args) {
   console.log("init function started");
   try {
     // Check if functions are defined before calling them
+    if (typeof setEmbeddedAttributeBasedOnURL === "function")
+      setEmbeddedAttributeBasedOnURL();
     if (typeof displayAccordion === "function") displayAccordion();
     if (typeof mobileImage === "function") mobileImage();
     if (typeof bgImage === "function") bgImage();
@@ -421,6 +489,7 @@ function init(args) {
     if (typeof updatePaymentMethods === "function") updatePaymentMethods();
     if (typeof emptyBonterraGridInlineCSS === "function")
       emptyBonterraGridInlineCSS();
+    if (typeof moveBonterraGridCSS === "function") moveBonterraGridCSS();
 
     const target = document.querySelector(".form-item-selectamount");
     if (target) {

@@ -23,6 +23,10 @@ body:not([data-embedded="true"]):before {
   );
 }
 
+.at {
+  position: initial;
+}
+
 body[data-embedded="true"] {
   .multistep-layout.split-layout {
     max-width: 1170px;
@@ -487,6 +491,7 @@ h1 {
 
 .at-form-submit {
   padding: 0 !important;
+  margin: 0;
 }
 
 .at-row > [class^="at-"] {
@@ -534,6 +539,11 @@ h1 {
     justify-self: center;
     align-self: center;
     grid-area: prev;
+
+    a {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .next {
@@ -560,7 +570,7 @@ h1 {
 
 .at .btn-at-primary {
   background: #ee2b77 !important;
-  padding: 16px 74px !important;
+  padding: 16px min(74px, 15vw) 16px min(74px, 12vw) !important;
   border-radius: 0px !important; // 8px
   text-align: center !important;
   color: #ffffff !important;
@@ -664,7 +674,9 @@ input[type="tel"][class*="intl-phone"] {
   padding-left: 46px !important;
 }
 
-.fastAction,
+.fastAction {
+  padding: 0 4px !important;
+}
 .FastAction {
   padding: 0 !important;
 }
@@ -723,6 +735,23 @@ input[type="tel"][class*="intl-phone"] {
 
 input[type="radio"][name="ecard"] {
   display: none !important;
+}
+
+.at-recurring {
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.FooterHtml {
+  display: block !important;
+  padding-bottom: 0;
+  p {
+    font-size: 18px !important;
+    line-height: 24px;
+    color: #000000 !important;
+    margin: 16px 0 !important;
+  }
 }
 
 // Fieldset .ContributionInformation

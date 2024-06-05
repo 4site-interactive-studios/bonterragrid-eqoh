@@ -74,35 +74,38 @@ const mobileImage = () => {
 const displayAccordion = () => {
   console.log("displayAccordion running");
   try {
-    // Add event listener to the container holding all the accordions
-    const accordionContainer = document.querySelector(".accordions");
-    if (accordionContainer) {
-      accordionContainer.addEventListener("click", function (event) {
-        // Ensure the clicked element is an accordion button
-        if (event.target.classList.contains("accordion")) {
-          console.log("Accordion clicked:", event.target);
+    // Select all accordion containers
+    const accordionContainers = document.querySelectorAll(".accordions");
 
-          // Prevent multiple toggles by stopping the event propagation
-          event.stopPropagation();
+    if (accordionContainers.length > 0) {
+      accordionContainers.forEach((container) => {
+        container.addEventListener("click", function (event) {
+          // Ensure the clicked element is an accordion button
+          if (event.target.classList.contains("accordion")) {
+            console.log("Accordion clicked:", event.target);
 
-          // Toggle the 'active' class
-          event.target.classList.toggle("active");
-          console.log("Toggled active class:", event.target.classList);
+            // Prevent multiple toggles by stopping the event propagation
+            event.stopPropagation();
 
-          // Find the corresponding panel
-          const panel = event.target.nextElementSibling;
-          if (panel && panel.classList.contains("panel")) {
-            // Toggle the display property of the panel
-            panel.style.display =
-              panel.style.display === "block" ? "none" : "block";
-            console.log("Panel display style set to:", panel.style.display);
-          } else {
-            console.warn("No panel found for", event.target);
+            // Toggle the 'active' class
+            event.target.classList.toggle("active");
+            console.log("Toggled active class:", event.target.classList);
+
+            // Find the corresponding panel
+            const panel = event.target.nextElementSibling;
+            if (panel && panel.classList.contains("panel")) {
+              // Toggle the display property of the panel
+              panel.style.display =
+                panel.style.display === "block" ? "none" : "block";
+              console.log("Panel display style set to:", panel.style.display);
+            } else {
+              console.warn("No panel found for", event.target);
+            }
           }
-        }
+        });
       });
     } else {
-      console.warn("Accordion container not found");
+      console.warn("Accordion containers not found");
     }
   } catch (error) {
     console.warn("Error displaying accordion:", error);
@@ -489,6 +492,60 @@ function setEmbeddedAttributeBasedOnURL() {
   }
 }
 
+const handleRecurringCheckbox = () => {
+  // Select the checkbox element
+  const recurringCheckbox = document.querySelector(
+    'input[type="checkbox"][name="IsRecurring"]'
+  );
+
+  if (recurringCheckbox) {
+    // Function to update the data attribute and label text based on the checkbox state
+    const updateRecurringDataAttribute = () => {
+      const labels = document.querySelectorAll("label.label-amount");
+      labels.forEach((label) => {
+        const input = label.querySelector(
+          'input[type="radio"][name="SelectAmount"]'
+        );
+        if (input) {
+          const amountElement = input.nextSibling; // The text node containing the dollar amount
+          if (amountElement && amountElement.nodeType === Node.TEXT_NODE) {
+            let updatedText = amountElement.textContent.trim();
+            if (recurringCheckbox.checked) {
+              document.body.setAttribute("data-is-recurring", "Y");
+              updatedText = updatedText.endsWith("/mo")
+                ? updatedText
+                : updatedText + "/mo";
+            } else {
+              document.body.removeAttribute("data-is-recurring");
+              updatedText = updatedText.replace("/mo", "").trim();
+            }
+
+            amountElement.textContent = updatedText;
+
+            // Update the "long" class based on text length and label-otheramount exclusion
+            if (
+              updatedText.length >= 7 &&
+              !label.classList.contains("label-otheramount")
+            ) {
+              label.classList.add("long");
+            } else {
+              label.classList.remove("long");
+            }
+          }
+        }
+      });
+    };
+
+    // Initial update on page load
+    updateRecurringDataAttribute();
+
+    // Add event listener to update on state change
+    recurringCheckbox.addEventListener("change", updateRecurringDataAttribute);
+  } else {
+    console.warn("Recurring checkbox not found");
+  }
+};
+
 function init(args) {
   console.log("init function started");
   try {
@@ -509,6 +566,8 @@ function init(args) {
     if (typeof setFrequencyListeners === "function") setFrequencyListeners();
     if (typeof setEFTMessage === "function") setEFTMessage();
     if (typeof updatePaymentMethods === "function") updatePaymentMethods();
+    if (typeof handleRecurringCheckbox === "function")
+      handleRecurringCheckbox();
     if (typeof emptyBonterraGridInlineCSS === "function")
       emptyBonterraGridInlineCSS();
     if (typeof moveBonterraGridCSS === "function") moveBonterraGridCSS();

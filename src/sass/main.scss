@@ -485,7 +485,19 @@ h1 {
   @media (max-width: 641px) {
     justify-content: center;
     flex-wrap: wrap;
-    text-align: center;
+    flex-direction: column;
+
+    .premium-image {
+      align-self: center;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .premium-content {
+      padding: 1rem;
+    }
   }
 }
 

@@ -257,7 +257,9 @@ const isViewport = () => {
     if (!takeAction) return;
 
     if (takeAction.innerHTML.trim() !== "") {
-      const target = document.querySelector(".ContributionInformation .radios");
+      const target = document.querySelector(
+        ".FastAction, .ContributionInformation"
+      );
       const config = { rootMargin: "0px", threshold: 1.0 };
       const callback = (entries, observer) => {
         entries.forEach((entry) => {

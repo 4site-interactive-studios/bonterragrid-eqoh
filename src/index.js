@@ -74,14 +74,36 @@ const mobileImage = () => {
 const displayAccordion = () => {
   console.log("displayAccordion running");
   try {
-    document.body.addEventListener("click", function (event) {
-      if (event.target.classList.contains("accordion")) {
-        event.target.classList.toggle("active");
-        const panel = event.target.nextElementSibling;
-        panel.style.display =
-          panel.style.display === "block" ? "none" : "block";
-      }
-    });
+    // Add event listener to the container holding all the accordions
+    const accordionContainer = document.querySelector(".accordions");
+    if (accordionContainer) {
+      accordionContainer.addEventListener("click", function (event) {
+        // Ensure the clicked element is an accordion button
+        if (event.target.classList.contains("accordion")) {
+          console.log("Accordion clicked:", event.target);
+
+          // Prevent multiple toggles by stopping the event propagation
+          event.stopPropagation();
+
+          // Toggle the 'active' class
+          event.target.classList.toggle("active");
+          console.log("Toggled active class:", event.target.classList);
+
+          // Find the corresponding panel
+          const panel = event.target.nextElementSibling;
+          if (panel && panel.classList.contains("panel")) {
+            // Toggle the display property of the panel
+            panel.style.display =
+              panel.style.display === "block" ? "none" : "block";
+            console.log("Panel display style set to:", panel.style.display);
+          } else {
+            console.warn("No panel found for", event.target);
+          }
+        }
+      });
+    } else {
+      console.warn("Accordion container not found");
+    }
   } catch (error) {
     console.warn("Error displaying accordion:", error);
   }

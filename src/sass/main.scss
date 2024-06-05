@@ -156,7 +156,7 @@ header.at-title {
 
   .multistep-layout .HeaderHtml p,
   p {
-    margin: 16px 4px;
+    margin: 16px 0;
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -338,7 +338,7 @@ h1 {
   .active {
     &::after {
       position: absolute;
-      right: 20px;
+      right: 10px;
       content: url("data:image/svg+xml;charset=UTF-8, <svg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5.1999 -8.39259e-07L0.651743 4.53607C0.315953 4.87097 0.315958 5.41395 0.651753 5.74884C0.987541 6.08372 1.53195 6.08372 1.86773 5.74883L5.1999 2.42551L8.53208 5.74883C8.86786 6.08372 9.41227 6.08372 9.74805 5.74884C10.0839 5.41395 10.0839 4.87097 9.74806 4.53607L5.1999 -8.39259e-07Z' fill='%23002634'/></svg>");
     }
   }
@@ -697,6 +697,14 @@ input[type="tel"][class*="intl-phone"] {
   margin-top: 0.25rem;
 }
 
+.at input[type="radio"] + label {
+  color: #000000 !important;
+}
+
+.at input[type="radio"]:checked + label {
+  color: #ffffff !important;
+}
+
 .intl-tel-input {
   margin-top: 0.25rem;
 }
@@ -707,6 +715,14 @@ input[type="tel"][class*="intl-phone"] {
 
 .fa-lead {
   font-size: 16px;
+}
+
+.at-ecards .at-ecard {
+  height: auto;
+}
+
+input[type="radio"][name="ecard"] {
+  display: none !important;
 }
 
 // Fieldset .ContributionInformation

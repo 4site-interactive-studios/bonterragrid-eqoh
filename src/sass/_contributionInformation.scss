@@ -85,24 +85,26 @@ fieldset.ContributionInformation {
     }
   }
 
-  input#id-1:checked ~ .at-radio-label-0 {
-    color: #ffffff !important;
-  }
+  // input#id-1:checked ~ .at-radio-label-0 {
+  //   color: #ffffff !important;
+  // }
 
-  input#id-0:checked ~ .at-radio-label-4 {
-    color: #ffffff !important;
-  }
+  // input#id-0:checked ~ .at-radio-label-4 {
+  //   color: #ffffff !important;
+  // }
 }
 
 .radio-description {
   display: flex;
-  font-size: 16px;
-  line-height: 24px;
   font-family: "Open Sans", sans-serif;
   font-style: italic;
-  font-weight: 400;
   margin-bottom: 1rem;
-  color: #0080c0;
+  color: #000000;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.01em;
 
   &::before {
     display: flex;
@@ -163,7 +165,7 @@ fieldset.ContributionInformation {
       left: 0;
       display: block;
       border: 1px solid #0080c0;
-      color: #0080c0;
+      color: #ffffff;
       background-color: #ffffff;
       border-radius: 0px; // 8px
       z-index: -1;
@@ -208,6 +210,10 @@ fieldset.ContributionInformation {
       background-color: #0080c0;
       border-color: #0080c0;
       transition: all 0.2s ease-in-out;
+    }
+
+    &:has(input[type="radio"]:checked) {
+      color: #ffffff;
     }
   }
 

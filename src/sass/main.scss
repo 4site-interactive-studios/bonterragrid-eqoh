@@ -295,7 +295,7 @@ h6 {
 h1 {
   font-size: 54px;
   line-height: 50px;
-  margin: 36px 4px 6px 4px;
+  margin: 36px 0px 6px 0px;
   font-weight: 500;
 }
 
@@ -348,7 +348,7 @@ h1 {
   }
 
   .panel {
-    padding: 0 18px;
+    padding: 0;
     display: none;
     overflow: hidden;
   }
@@ -533,6 +533,9 @@ h1 {
     justify-self: center;
     align-self: center;
     grid-area: secure-processing-div;
+    label {
+      text-align: center;
+    }
   }
 
   .prev {
@@ -550,6 +553,7 @@ h1 {
     justify-self: center;
     align-self: center;
     grid-area: next;
+    max-width: 320px;
   }
 
   .submitStep {
@@ -570,7 +574,7 @@ h1 {
 
 .at .btn-at-primary {
   background: #ee2b77 !important;
-  padding: 16px min(74px, 15vw) 16px min(74px, 12vw) !important;
+  padding: 16px min(60px, 15vw) 16px min(60px, 12vw) !important;
   border-radius: 0px !important; // 8px
   text-align: center !important;
   color: #ffffff !important;
@@ -752,6 +756,11 @@ input[type="radio"][name="ecard"] {
     color: #000000 !important;
     margin: 16px 0 !important;
   }
+}
+
+.vgs-cc-iframe-wrapper,
+.vgs-ccexpiration-iframe-wrapper {
+  margin-top: 0.25rem;
 }
 
 // Fieldset .ContributionInformation

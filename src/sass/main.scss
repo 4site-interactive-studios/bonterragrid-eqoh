@@ -586,7 +586,8 @@ h1 {
 
 .at .btn-at-primary {
   background: #ee2b77 !important;
-  padding: 16px min(60px, 15vw) 16px min(60px, 12vw) !important;
+  padding: 16px min(max(60px, calc(2ch + 30px)), max(5vw, calc(2ch + 30px)))
+    16px min(60px, 12vw) !important;
   border-radius: 0px !important; // 8px
   text-align: center !important;
   color: #ffffff !important;
@@ -597,7 +598,7 @@ h1 {
 
   &::after {
     position: absolute;
-    right: 24px;
+    margin-left: 1ch;
     top: calc(50% - 14px);
     content: url("data:image/svg+xml;charset=UTF-8, <svg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8.81898 13.6656L8.81899 13.6656L13.1726 8.91199L1.22832 8.91199C0.979446 8.91199 0.79086 8.69422 0.79086 8.44261L0.790861 7.55739C0.790861 7.30579 0.979447 7.08802 1.22832 7.08802L13.1726 7.08802L8.81899 2.33438C8.6518 2.15183 8.65181 1.85885 8.81898 1.67628L8.81899 1.67627L9.39226 1.05033C9.56363 0.863222 9.84501 0.863232 10.0164 1.05032L10.0164 1.05033L16.0799 7.67094C16.2471 7.85349 16.2471 8.14646 16.0799 8.32904L16.0799 8.32905L10.0164 14.9496C9.84502 15.1368 9.56362 15.1368 9.39226 14.9497C9.39226 14.9497 9.39226 14.9496 9.39226 14.9496L8.81899 14.3237C8.6518 14.1412 8.65181 13.8482 8.81898 13.6656Z' fill='white' stroke='white' stroke-width='0.18'/></svg>");
   }

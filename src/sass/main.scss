@@ -279,8 +279,9 @@ div[id^="nb-field-"] div.nb-feedback div .nb-poweredby {
 }
 
 .logo {
-  width: 175px;
+  max-width: 100%;
   margin: 0 4px;
+  object-fit: contain;
 }
 
 h1,

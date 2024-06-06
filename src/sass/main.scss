@@ -372,6 +372,8 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   cursor: pointer;
+  max-width: calc(100% - 30vw);
+  margin: 0 auto;
 
   &::after {
     position: absolute;

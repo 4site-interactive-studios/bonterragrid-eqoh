@@ -328,6 +328,14 @@ h1 {
     background-size: 4px 1px;
     background-repeat: repeat-x;
 
+    &.hide-on-expand.active {
+      display: none;
+    }
+
+    // &.hide-on-expand.active + .panel p:first-child {
+    //   margin-top: 0;
+    // }
+
     &::after {
       position: absolute;
       right: 10px;
@@ -766,10 +774,28 @@ input[type="radio"][name="ecard"] {
 .FooterHtml {
   display: block !important;
   padding-bottom: 0;
-  p {
+
+  p,
+  li {
     font-size: 18px !important;
     line-height: 24px;
     color: #000000 !important;
+  }
+
+  em,
+  u,
+  strong {
+    font-size: 18px !important;
+    color: #000000 !important;
+  }
+
+  a {
+    font-size: 18px !important;
+    color: #228ae6 !important;
+    word-break: break-all;
+  }
+
+  p {
     margin: 16px 0 !important;
   }
 }

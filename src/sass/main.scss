@@ -247,7 +247,7 @@ div[id^="nb-field-"] div.nb-feedback div .nb-poweredby {
   top: 0;
   height: 100vh;
   display: flex;
-  width: calc(100vw - 640px);
+  width: calc(100% - 640px);
   @media (max-width: 640px) {
     display: none;
   }

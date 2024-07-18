@@ -615,6 +615,22 @@ var formatLabelInputs = function formatLabelInputs() {
     }
   });
 };
+var updateCurrentYear = function updateCurrentYear() {
+  try {
+    var currentYearSpan = document.getElementById("current-year");
+    if (currentYearSpan) {
+      var currentYear = new Date().getFullYear();
+      currentYearSpan.textContent = "".concat(currentYear, " ");
+    } else {
+      console.error('Element with id "current-year" not found.');
+    }
+  } catch (error) {
+    console.error("An error occurred while updating the current year:", error);
+  }
+};
+
+// Call the function
+updateCurrentYear();
 function init(args) {
   console.log("init function started");
   try {
@@ -636,6 +652,7 @@ function init(args) {
     if (typeof setEFTMessage === "function") setEFTMessage();
     if (typeof updatePaymentMethods === "function") updatePaymentMethods();
     if (typeof handleRecurringCheckbox === "function") handleRecurringCheckbox();
+    if (typeof updateCurrentYear === "function") updateCurrentYear();
     if (typeof emptyBonterraGridInlineCSS === "function") emptyBonterraGridInlineCSS();
     if (typeof moveBonterraGridCSS === "function") moveBonterraGridCSS();
     var target = document.querySelector(".form-item-selectamount");

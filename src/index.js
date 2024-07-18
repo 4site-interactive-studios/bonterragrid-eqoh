@@ -615,6 +615,23 @@ const formatLabelInputs = () => {
     });
 };
 
+const updateCurrentYear = () => {
+  try {
+    const currentYearSpan = document.getElementById("current-year");
+    if (currentYearSpan) {
+      const currentYear = new Date().getFullYear();
+      currentYearSpan.textContent = `${currentYear} `;
+    } else {
+      console.error('Element with id "current-year" not found.');
+    }
+  } catch (error) {
+    console.error("An error occurred while updating the current year:", error);
+  }
+};
+
+// Call the function
+updateCurrentYear();
+
 function init(args) {
   console.log("init function started");
   try {
@@ -638,6 +655,7 @@ function init(args) {
     if (typeof updatePaymentMethods === "function") updatePaymentMethods();
     if (typeof handleRecurringCheckbox === "function")
       handleRecurringCheckbox();
+    if (typeof updateCurrentYear === "function") updateCurrentYear();
     if (typeof emptyBonterraGridInlineCSS === "function")
       emptyBonterraGridInlineCSS();
     if (typeof moveBonterraGridCSS === "function") moveBonterraGridCSS();

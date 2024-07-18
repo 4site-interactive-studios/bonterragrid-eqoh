@@ -229,6 +229,20 @@ fieldset.ContributionInformation {
     height: 66px;
     margin: 0 4px 8px 4px !important;
 
+    &.error {
+      flex-flow: wrap;
+
+      .label-otheramount-prefix {
+        color: #fff;
+      }
+    }
+
+    &.active.error small.error {
+      padding: 0.5rem;
+      background: #fa5252;
+      color: #fff;
+    }
+
     &.active input[type="number"] {
       background-color: #0080c0;
       border-color: #0080c0;

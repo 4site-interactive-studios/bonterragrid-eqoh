@@ -131,36 +131,69 @@ const selectAmount = () => {
     const labelAmount = document.querySelectorAll(".label-amount");
     const labelOtheramount = document.querySelector(".edit-otheramount");
 
-    labelOtheramount.addEventListener("focus", handleClick);
-
-    labelAmount.forEach((label, index) => {
-      if (index === 0) {
+    // Initialize the active label based on the selected radio button
+    let activeFound = false;
+    labelAmount.forEach((label) => {
+      const radio = label.querySelector('input[type="radio"]');
+      if (radio.checked) {
         label.classList.add("active");
-        label.querySelector('input[type="radio"]').checked = true;
-        labelOtheramount.removeAttribute("required");
-        labelOtheramount.value = "";
+        activeFound = true;
+      } else {
+        label.classList.remove("active");
       }
-      label.addEventListener("change", handleClick);
+    });
+
+    // If no radio button is selected, set the first one as active by default
+    if (!activeFound && labelAmount.length > 0) {
+      labelAmount[0].classList.add("active");
+      labelAmount[0].querySelector('input[type="radio"]').checked = true;
+    }
+
+    labelOtheramount.removeAttribute("required");
+    labelOtheramount.value = "";
+
+    labelOtheramount.addEventListener("focus", handleOtherAmountFocus);
+
+    labelAmount.forEach((label) => {
+      const radio = label.querySelector('input[type="radio"]');
+      radio.addEventListener("change", handleLabelAmountChange);
     });
   } catch (error) {
     console.warn("Error handling select amount:", error);
   }
 };
 
-const handleClick = (e) => {
-  e.preventDefault();
+const handleLabelAmountChange = (e) => {
   const labelAmount = document.querySelectorAll(".label-amount");
   labelAmount.forEach((label) => {
     const radio = label.querySelector('input[type="radio"]');
-    label.classList.remove("active");
-    if (e.currentTarget.parentNode.classList.contains("label-otheramount"))
-      radio.checked = !!radio.classList.contains("radio-other");
+    if (radio === e.target) {
+      label.classList.add("active");
+    } else {
+      label.classList.remove("active");
+    }
   });
-  if (e.currentTarget.parentNode.classList.contains("label-otheramount")) {
-    e.currentTarget.parentNode.classList.add("active");
-  } else {
-    e.currentTarget.classList.add("active");
+
+  // Clear the other amount value if a predefined amount is selected
+  const labelOtheramount = document.querySelector(".edit-otheramount");
+  if (labelOtheramount) {
+    labelOtheramount.value = "";
   }
+};
+
+const handleOtherAmountFocus = (e) => {
+  const labelAmount = document.querySelectorAll(".label-amount");
+  labelAmount.forEach((label) => {
+    label.classList.remove("active");
+    const radio = label.querySelector('input[type="radio"]');
+    if (radio) {
+      radio.checked = false;
+    }
+  });
+
+  // Add active class to the other amount input
+  e.currentTarget.parentNode.classList.add("active");
+  e.currentTarget.previousElementSibling.checked = true;
 };
 
 const insertPremiums = () => {

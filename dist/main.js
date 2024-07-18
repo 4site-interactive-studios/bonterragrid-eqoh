@@ -593,27 +593,35 @@ var handleRecurringCheckbox = function handleRecurringCheckbox() {
   }
 };
 var formatLabelInputs = function formatLabelInputs() {
-  document.querySelectorAll('.SelectAmount label[title^="/"]').forEach(function (label) {
-    var title = label.getAttribute("title");
+  try {
+    document.querySelectorAll('.SelectAmount label[title^="/"]').forEach(function (label) {
+      try {
+        var title = label.getAttribute("title");
 
-    // Check if the title matches the pattern for recurring frequencies with an optional description
-    var frequencyMatch = title.match(/^\/(mo|yr)(?: - ([\w\s]+))? \(\$([\d.]+)\)$/);
-    if (frequencyMatch) {
-      var frequency = frequencyMatch[1]; // 'mo' or 'yr'
-      var description = frequencyMatch[2] || ""; // Optional description
-      var amount = frequencyMatch[3]; // Amount like '25'
+        // Check if the title matches the pattern for recurring frequencies with an optional description
+        var frequencyMatch = title.match(/^\/(mo|yr)(?: - ([\w\s]+))? \(\$([\d.]+)\)$/);
+        if (frequencyMatch) {
+          var frequency = frequencyMatch[1]; // 'mo' or 'yr'
+          var description = frequencyMatch[2] || ""; // Optional description
+          var amount = frequencyMatch[3]; // Amount like '25'
 
-      // Create the formatted label
-      var formattedLabel = description ? "$".concat(amount, "/").concat(frequency, " - ").concat(description) : "$".concat(amount, "/").concat(frequency);
+          // Create the formatted label
+          var formattedLabel = description ? "$".concat(amount, "/").concat(frequency, " - ").concat(description) : "$".concat(amount, "/").concat(frequency);
 
-      // Update the label's text node without affecting the input's value
-      label.childNodes.forEach(function (node) {
-        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().startsWith("/")) {
-          node.textContent = formattedLabel;
+          // Update the label's text node without affecting the input's value
+          label.childNodes.forEach(function (node) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().startsWith("/")) {
+              node.textContent = formattedLabel;
+            }
+          });
         }
-      });
-    }
-  });
+      } catch (error) {
+        console.error("An error occurred while processing a label:", error);
+      }
+    });
+  } catch (error) {
+    console.error("An error occurred while selecting labels:", error);
+  }
 };
 var updateCurrentYear = function updateCurrentYear() {
   try {

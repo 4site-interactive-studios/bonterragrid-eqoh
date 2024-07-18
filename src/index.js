@@ -582,37 +582,45 @@ const handleRecurringCheckbox = () => {
 };
 
 const formatLabelInputs = () => {
-  document
-    .querySelectorAll('.SelectAmount label[title^="/"]')
-    .forEach((label) => {
-      const title = label.getAttribute("title");
+  try {
+    document
+      .querySelectorAll('.SelectAmount label[title^="/"]')
+      .forEach((label) => {
+        try {
+          const title = label.getAttribute("title");
 
-      // Check if the title matches the pattern for recurring frequencies with an optional description
-      const frequencyMatch = title.match(
-        /^\/(mo|yr)(?: - ([\w\s]+))? \(\$([\d.]+)\)$/
-      );
+          // Check if the title matches the pattern for recurring frequencies with an optional description
+          const frequencyMatch = title.match(
+            /^\/(mo|yr)(?: - ([\w\s]+))? \(\$([\d.]+)\)$/
+          );
 
-      if (frequencyMatch) {
-        const frequency = frequencyMatch[1]; // 'mo' or 'yr'
-        const description = frequencyMatch[2] || ""; // Optional description
-        const amount = frequencyMatch[3]; // Amount like '25'
+          if (frequencyMatch) {
+            const frequency = frequencyMatch[1]; // 'mo' or 'yr'
+            const description = frequencyMatch[2] || ""; // Optional description
+            const amount = frequencyMatch[3]; // Amount like '25'
 
-        // Create the formatted label
-        const formattedLabel = description
-          ? `$${amount}/${frequency} - ${description}`
-          : `$${amount}/${frequency}`;
+            // Create the formatted label
+            const formattedLabel = description
+              ? `$${amount}/${frequency} - ${description}`
+              : `$${amount}/${frequency}`;
 
-        // Update the label's text node without affecting the input's value
-        label.childNodes.forEach((node) => {
-          if (
-            node.nodeType === Node.TEXT_NODE &&
-            node.textContent.trim().startsWith("/")
-          ) {
-            node.textContent = formattedLabel;
+            // Update the label's text node without affecting the input's value
+            label.childNodes.forEach((node) => {
+              if (
+                node.nodeType === Node.TEXT_NODE &&
+                node.textContent.trim().startsWith("/")
+              ) {
+                node.textContent = formattedLabel;
+              }
+            });
           }
-        });
-      }
-    });
+        } catch (error) {
+          console.error("An error occurred while processing a label:", error);
+        }
+      });
+  } catch (error) {
+    console.error("An error occurred while selecting labels:", error);
+  }
 };
 
 const updateCurrentYear = () => {

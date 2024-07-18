@@ -775,6 +775,10 @@ input[type="radio"][name="ecard"] {
   display: block !important;
   padding-bottom: 0;
 
+  ul {
+    margin-left: 1.3rem !important; // Fixes windows clipping the list bullets: https://www.bugherd.com/projects/398063/tasks/33
+  }
+
   p,
   li {
     font-size: 18px !important;
@@ -792,7 +796,7 @@ input[type="radio"][name="ecard"] {
   a {
     font-size: 18px !important;
     color: #228ae6 !important;
-    word-break: break-all;
+    word-break: break-word; // Prevents unwanted word breaks: https://www.bugherd.com/projects/398063/tasks/32
   }
 
   p {

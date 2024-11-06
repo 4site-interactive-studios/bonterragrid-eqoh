@@ -387,7 +387,8 @@ var photoCredit = function photoCredit() {
     if (!responsiveHero || !_bgImage2) return;
     var responsiveHeroImage = responsiveHero.querySelector("img");
     if (responsiveHeroImage && responsiveHeroImage.hasAttribute("title")) {
-      var photoAttribute = responsiveHeroImage.getAttribute("title");
+      // Get the attribute and replace any escape characters
+      var photoAttribute = responsiveHeroImage.getAttribute("title").replace(/\\/g, "");
       var creditMarkup = "<div class=\"photoCredit\">".concat(photoAttribute, "</div>");
       if (!_bgImage2.querySelector(".photoCredit")) {
         _bgImage2.insertAdjacentHTML("beforeend", creditMarkup);

@@ -350,7 +350,8 @@ const photoCredit = () => {
 
     const responsiveHeroImage = responsiveHero.querySelector("img");
     if (responsiveHeroImage && responsiveHeroImage.hasAttribute("title")) {
-      const photoAttribute = responsiveHeroImage.getAttribute("title");
+      // Get the attribute and replace any escape characters
+      let photoAttribute = responsiveHeroImage.getAttribute("title").replace(/\\/g, "");
       const creditMarkup = `<div class="photoCredit">${photoAttribute}</div>`;
 
       if (!bgImage.querySelector(".photoCredit")) {

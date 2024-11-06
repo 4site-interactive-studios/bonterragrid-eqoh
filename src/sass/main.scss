@@ -27,6 +27,11 @@ body:not([data-embedded="true"]):before {
   position: initial;
 }
 
+/* Force the thank you page table to be responsive */
+.thankYou section .wrapper{
+  width: auto !important;
+}
+
 body[data-embedded="true"] {
   .multistep-layout.split-layout {
     max-width: 1170px;
